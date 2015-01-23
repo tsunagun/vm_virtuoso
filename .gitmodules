@@ -1,0 +1,3 @@
+[submodule "virtuoso-opensource"]
+	path = virtuoso-opensource
+	url = https://github.com/openlink/virtuoso-opensource.git
