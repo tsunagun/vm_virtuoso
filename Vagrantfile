@@ -2,8 +2,18 @@
 # vi: set ft=ruby :
 
 box = "ubuntu/trusty64"
-vm_name = "vagrant_template"
-ip_address = "192.168.33.101"
+vm_name = ''
+ip_address = ''
+
+if ip_address == ""
+  puts "Vagrantfileを編集して，仮想マシンの名前を設定してください"
+  exit
+end
+
+if ip_address == ""
+  puts "Vagrantfileを編集して，仮想マシンのIPアドレスを設定してください"
+  exit
+end
 
 # Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
 VAGRANTFILE_API_VERSION = "2"
