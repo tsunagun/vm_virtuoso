@@ -13,7 +13,7 @@ sedコマンドで書き換える．
 ``
 git clone https://github.com/tsunagun/vm_virtuoso.git
 cd vm_virtuoso
-git submodule update
+git submodule update --init
 sed -i "" -e "s/^vm_name.*/vm_name = 'virtuoso'/" Vagrantfile
 sed -i "" -e "s/^ip_address.*/ip_address = '192.168.33.102'/" Vagrantfile
 vagrant up
