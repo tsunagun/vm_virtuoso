@@ -22,6 +22,12 @@ make
 sudo make install
 sudo chown -R vagrant /var/lib/virtuoso/db
 
+sed -i -e "s/\(^DirsAllowed.*\)/\1, \/vagrant\/data/g" /var/lib/virtuoso/db/virtuoso.ini
+sed -i -e "s/\(^NumberOfBuffers.*\)/;;\1\nNumberOfBuffers = 680000/g" /var/lib/virtuoso/db/virtuoso.ini
+sed -i -e "s/\(^MaxDirtyBuffers.*\)/;;\1\nMaxDirtyBuffers = 500000/g" /var/lib/virtuoso/db/virtuoso.ini
+
+virtuoso-t -c /var/lib/virtuoso/db/virtuoso.ini
+
 cat <<EOS
 
 設定ファイルの場所
@@ -30,4 +36,8 @@ cat <<EOS
 起動コマンド
   virtuoso-t -c /var/lib/virtuoso/db/virtuoso.ini
 
+終了コマンド
+  isql-v exec="shutdown;"
 EOS
+
+
